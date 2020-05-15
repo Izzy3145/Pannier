@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Pannier</string>
+    <string name="title_list">List</string>
+    <string name="title_map">Map</string>
+    <string name="title_weather">Weather</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="mapbox_access_token">pk.eyJ1IjoiaXp6eXdpenp5IiwiYSI6ImNrOTg3YnpvejAwMWUzZG1uYms5Y3lndXUifQ.h4mhpMrCxQ7vdzgiBYIX-Q</string>
+    <string name="search_routes_from">Search routes from...</string>
+
+    <string name="to">...to</string>
+    <string name="search">Search</string>
+</resources>
