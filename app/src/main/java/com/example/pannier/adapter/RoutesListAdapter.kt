@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pannier.R
 import com.example.pannier.models.Route
 
-class RoutesListAdapter(context: Context, routesList: ArrayList<Route>, onRouteListener: OnRouteListener)
+class RoutesListAdapter(val context: Context, routesList: ArrayList<Route>?, onRouteListener: OnRouteListener)
     :RecyclerView.Adapter<RoutesListAdapter.RouteViewHolder>() {
 
     val TAG = "RoutesListAdapter"
     val mOnRouteListener = onRouteListener
-    val mContext = context
-    val mRoutesList = routesList
+    var mRoutesList = routesList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RouteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.route_list_item, parent, false)
@@ -29,25 +28,29 @@ class RoutesListAdapter(context: Context, routesList: ArrayList<Route>, onRouteL
     }
 
     override fun onBindViewHolder(holder: RouteViewHolder, position: Int) {
-    val routeItem = mRoutesList[position]
-        holder.routeTitle.text = routeItem.title
+        val routeItem = mRoutesList?.get(position)
+        holder.routeTitle.text = routeItem?.title
     }
 
     inner class RouteViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
-        var routeTitle : TextView
+        var routeTitle : TextView = v.findViewById(R.id.route_title)
 
-        init{
-            routeTitle = v.findViewById(R.id.route_title)
+        init {
             v.setOnClickListener(this)
         }
 
         override fun onClick(v: View?) {
             Log.d(TAG, "onClick: $adapterPosition")
-            mOnRouteListener.onRouteClick(mRoutesList[adapterPosition])
+            mOnRouteListener.onRouteClick(mRoutesList?.get(adapterPosition))
         }
     }
 
+    fun setRoutesListData(routesList: ArrayList<Route>){
+        mRoutesList = routesList
+        notifyDataSetChanged()
+    }
+
     interface OnRouteListener{
-        fun onRouteClick(route: Route)
+        fun onRouteClick(route: Route?)
     }
 }
