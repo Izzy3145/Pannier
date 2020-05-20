@@ -33,7 +33,6 @@ class RoutesListAdapter(context: Context, routesList: ArrayList<Route>, onRouteL
         holder.routeTitle.text = routeItem.title
     }
 
-
     inner class RouteViewHolder(v: View) : RecyclerView.ViewHolder(v), View.OnClickListener {
         var routeTitle : TextView
 
