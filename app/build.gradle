@@ -47,21 +47,10 @@ dependencies {
     //mapbox navigation
     implementation 'com.mapbox.mapboxsdk:mapbox-android-navigation-ui:0.42.6'
 
-    // Dagger
-    def dagger_version = "2.22"
-    // Dagger2 core
-    implementation "com.google.dagger:dagger:$dagger_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-
-    // Dagger Android
-    implementation "com.google.dagger:dagger-android:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
 
     // ViewModel and LiveData
-    def lifecycle_version = '2.2.0-alpha03'
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    def lifecycle_version = '2.2.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
     // Retrofit
     def retrofitVersion = "2.5.0"
