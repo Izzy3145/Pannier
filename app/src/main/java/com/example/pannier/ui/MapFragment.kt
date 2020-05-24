@@ -2,7 +2,6 @@ package com.example.pannier.ui
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,9 +9,6 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.pannier.R
 import com.example.pannier.utils.NavigationUtils
-import com.mapbox.api.directions.v5.DirectionsCriteria
-import com.mapbox.api.directions.v5.models.DirectionsResponse
-import com.mapbox.geojson.Point
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.maps.MapView
 import com.mapbox.mapboxsdk.maps.Style
@@ -20,14 +16,6 @@ import com.mapbox.mapboxsdk.style.layers.HillshadeLayer
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.hillshadeHighlightColor
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory.hillshadeShadowColor
 import com.mapbox.mapboxsdk.style.sources.RasterDemSource
-import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher
-import com.mapbox.services.android.navigation.ui.v5.NavigationLauncherOptions
-import com.mapbox.services.android.navigation.v5.navigation.MapboxNavigation
-import com.mapbox.services.android.navigation.v5.navigation.NavigationRoute
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import timber.log.Timber
 
 
 private const val LAYER_ID = "hillshade-layer"
@@ -53,9 +41,12 @@ class MapFragment : Fragment() {
         setUpMap()
 
 
+
         navigationUtils = NavigationUtils(activity!!)
         val searchButton : Button = view.findViewById(R.id.search_button)
         searchButton.setOnClickListener {navigationUtils.searchRoute()}
+        val startNavigationBtn : Button = view.findViewById(R.id.start_navigation)
+        startNavigationBtn.setOnClickListener{startNavigationBtn}
 
         return view
     }

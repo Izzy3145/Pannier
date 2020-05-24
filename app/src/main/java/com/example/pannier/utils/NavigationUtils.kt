@@ -5,7 +5,6 @@ import android.content.Context
 import android.util.Log
 import com.example.pannier.R
 import com.mapbox.api.directions.v5.DirectionsCriteria
-import com.mapbox.api.directions.v5.DirectionsCriteria.PROFILE_CYCLING
 import com.mapbox.api.directions.v5.models.DirectionsResponse
 import com.mapbox.geojson.Point
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher
@@ -17,11 +16,11 @@ import retrofit2.Callback
 import retrofit2.Response
 import timber.log.Timber
 
+// class that provides sat nav between two points (the two points are currently hard-coded)
 class NavigationUtils(var activity: Activity) {
 
     init {
         val navigation = MapboxNavigation(activity!!, activity.getString(R.string.mapbox_access_token))
-
     }
 
     fun searchRoute(originLat: Double = 38.8977, originLon: Double = -77.03613,
